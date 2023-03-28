@@ -14,4 +14,4 @@ Great for testing simple deployments to the cloud
 
 ### Ports Used:
 `http://localhost:3000
-http://localhost:3001`
+http://localhost:3006`
