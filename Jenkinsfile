@@ -19,20 +19,11 @@ pipeline{
         
         
           
-            mail to : "somya.negi@knoldus.com",
+            mail to : "somya.negi@knoldus.com", subject: "Build result",body: "success"
         
-        
-          
-            subject: "Build result",
-        
-        
-          
-            body: "success"
-        
-        
-          
-        }
+    }
         
         
               }
+
 }
