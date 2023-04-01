@@ -3,7 +3,7 @@ pipeline{
   stages{
     stage('clone'){
       steps{
-      git branch: 'development', url: 'https://github.com/somyanegi321/node-hello.git'
+      git branch: 'deploy', url: 'https://github.com/somyanegi321/node-hello.git'
       }}
     stage('run'){
       steps{
