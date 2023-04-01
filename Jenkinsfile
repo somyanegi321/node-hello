@@ -19,7 +19,7 @@ pipeline{
         
         
           
-            mail to: "somya.negi@knoldus.com,
+       mail to: "somya.negi@knoldus.com,
         
         
           
