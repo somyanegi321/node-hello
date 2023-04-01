@@ -11,4 +11,28 @@ pipeline{
      java index'''
       }}
   }
+  post{
+        
+        
+          
+        always{
+        
+        
+          
+            mail to: "somya.negi@knoldus.com",
+        
+        
+          
+            subject: "Build result",
+        
+        
+          
+            body: "success"
+        
+        
+          
+        }
+        
+        
+              }
 }
