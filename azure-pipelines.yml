@@ -6,7 +6,7 @@
 trigger:
 - development
 
-pool: mylocalagentpool
+pool: default
 
 steps:
     - task: NodeTool@0
