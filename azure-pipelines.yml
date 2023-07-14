@@ -19,9 +19,6 @@ steps:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'drop'
         publishLocation: 'Container'
-        MaxArtifactSize: 200mb
-        StoreAsTar: true
-
     - script: |
         npm pack
         npm start
