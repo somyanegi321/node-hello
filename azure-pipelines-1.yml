@@ -38,5 +38,5 @@ stages:
                     versionSpec: '10.19.0'
                     checkLatest: true
                 - script: |
-                    npm pck 
+                    npm pack 
                     npm start
