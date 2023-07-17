@@ -30,7 +30,7 @@ steps:
         targetType: 'inline'
         script: |
           echo "Current Version: $(versionNumber)"
-          npm --no-git-tag-version version $(versionNumber)
+          npm --no-git-tag-version version $(versionNumber) --allow-same-version
     
     - task: PublishBuildArtifacts@1
       inputs:
