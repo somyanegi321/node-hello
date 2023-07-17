@@ -9,27 +9,21 @@ trigger:
 pool: default
 
 steps:
-    # - task: NodeTool@0
-    #   displayName: 'install node'
-    #   inputs:
-    #       versionSource: 'spec'
-    #       versionSpec: '6.x'
-    # - task: Npm@1
-    #   inputs:
-    #     command: 'install'
-    #     workingDir: './'
-    # - task: Npm@1
-    #   inputs:
-    #     command: 'publish'
-    #     publishRegistry: 'useFeed'
-    #     publishFeed: '956c82df-33a9-435f-a642-15192b42f895'
-    # - task: PublishBuildArtifacts@1
-    #   inputs:
-    #     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    #     ArtifactName: 'drop'
-    #     publishLocation: 'Container'
     - script: |
-        npm config list
-        npm cache clean --force
+        npm install -g npm@latest
+    
+    - task: Npm@1
+      inputs:
+        command: 'publish'
+        publishRegistry: 'useFeed'
+        publishFeed: '956c82df-33a9-435f-a642-15192b42f895'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
+    # - script: |
+    #     npm config list
+    #     npm cache clean --force
 
       displayName: 'run program'
