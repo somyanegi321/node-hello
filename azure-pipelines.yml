@@ -14,12 +14,21 @@ steps:
       inputs:
           versionSource: 'spec'
           versionSpec: '6.x'
-    - task: PublishBuildArtifacts@1
+    - task: Npm@1
       inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'drop'
-        publishLocation: 'Container'
-    - script: |
-        npm pack
-        npm start
-      displayName: 'run program'
+        command: 'install'
+        workingDir: './package.json'
+    - task: Npm@1
+      inputs:
+        command: 'publish'
+        publishRegistry: 'useFeed'
+        publishFeed: '956c82df-33a9-435f-a642-15192b42f895'
+    # - task: PublishBuildArtifacts@1
+    #   inputs:
+    #     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    #     ArtifactName: 'drop'
+    #     publishLocation: 'Container'
+    # - script: |
+    #     npm pack
+    #     npm start
+    #   displayName: 'run program'
