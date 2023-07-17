@@ -28,8 +28,9 @@ steps:
     - task: Npm@1
       inputs:
         command: 'publish'
+        verbose: true
         publishRegistry: 'useFeed'
-        publishFeed: '956c82df-33a9-435f-a642-15192b42f895'
+        publishFeed: 'e04d6ea5-70c3-48d9-8aab-24717f6fb3f9/52c3fd2f-74d3-439b-b77e-832cde4114b2'
     # - script: |
     #     npm config list
     #     npm cache clean --force
