@@ -24,13 +24,13 @@ steps:
         command: 'install'
         workingDir: './'
         verbose: true
-    # - task: Bash@3
-    #   displayName: 'Update Version'
-    #   inputs:
-    #     targetType: 'inline'
-    #     script: |
-    #       echo "Current Version: $(versionNumber)"
-    #       npm --no-git-tag-version version $(versionNumber)
+    - task: Bash@3
+      displayName: 'Update Version'
+      inputs:
+        targetType: 'inline'
+        script: |
+          echo "Current Version: $(versionNumber)"
+          npm --no-git-tag-version version $(versionNumber)
     
     - task: PublishBuildArtifacts@1
       inputs:
