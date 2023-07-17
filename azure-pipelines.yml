@@ -9,8 +9,11 @@ trigger:
 pool: default
 
 steps:
-    - script: |
-        npm install -g npm@latest
+    - task: NodeTool@0
+      inputs:
+        versionSource: 'spec'
+        versionSpec: '6.x'
+        checkLatest: true
     
     - task: Npm@1
       inputs:
