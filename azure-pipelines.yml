@@ -26,6 +26,12 @@ steps:
          ArtifactName: 'drop'
          publishLocation: 'Container'
          StoreAsTar: true
+         
+    - script: |
+        echo "##vso[task.setvariable variable=count]$(count)"
+        echo "##vso[task.setvariable variable=versionNumber]1.2.$(count)"
+      displayName: 'Increment Count and Set Version'
+    
     - task: Npm@1
       inputs:
         command: 'publish'
