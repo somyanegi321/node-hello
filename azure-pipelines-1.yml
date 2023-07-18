@@ -32,34 +32,11 @@ stages:
                     downloadType: 'single'
                     artifactName: 'drop'
                     downloadPath: '$(System.ArtifactsDirectory)'
-                # - task: NodeTool@0
-                #   inputs:
-                #     versionSource: 'spec'
-                #     versionSpec: '10.19.0'
-                #     checkLatest: true
-                # - script: |
-                - task: PowerShell@2
-                  displayName: 'Get Latest Package Version'
+                - task: NodeTool@0
                   inputs:
-                    targetType: 'inline'
-                    script: |
-                            $organizationUrl = "https://dev.azure.com/somya2000"  # Replace with your organization URL
-                            $projectName = "artifactdemo"  # Replace with your project name
-                            $feedId = "trial"  # Replace with your feed ID
-                            $packageName = "node-hello"  # Replace with your package name
-
-                            $uri = "$organizationUrl/$projectName/_apis/packaging/Feeds/$feedId/npm/packages/$packageName/versions?api-version=6.1-preview.1"
-                            $token = "$(System.AccessToken)"
-                            $headers = @{
-                              "Authorization" = "Bearer $token"
-                            }
-
-                            $response = Invoke-RestMethod -Uri $uri -Headers $headers
-                            $latestVersion = ($response.value | Sort-Object -Property version -Descending | Select-Object -First 1).version
-
-                            Write-Host "Latest version: $latestVersion"
-                            Write-Host "##vso[task.setvariable variable=npmPackageVersion]$latestVersion"
-
-                            # Install the latest version of the npm package
-                            npm install "$packageName@$latestVersion"
-                            npm start
+                    versionSource: 'spec'
+                    versionSpec: '10.19.0'
+                    checkLatest: true
+                - script: |
+                      npm install 
+                      npm start
