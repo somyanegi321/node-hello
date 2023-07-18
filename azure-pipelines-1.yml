@@ -43,10 +43,10 @@ stages:
                   inputs:
                     targetType: 'inline'
                     script: |
-                            $organizationUrl = "https://dev.azure.com/your-organization"  # Replace with your organization URL
-                            $projectName = "your-project"  # Replace with your project name
-                            $feedId = "your-feed-id"  # Replace with your feed ID
-                            $packageName = "your-package"  # Replace with your package name
+                            $organizationUrl = "https://dev.azure.com/somya2000"  # Replace with your organization URL
+                            $projectName = "artifactdemo"  # Replace with your project name
+                            $feedId = "trial"  # Replace with your feed ID
+                            $packageName = "node-hello"  # Replace with your package name
 
                             $uri = "$organizationUrl/$projectName/_apis/packaging/Feeds/$feedId/npm/packages/$packageName/versions?api-version=6.1-preview.1"
                             $token = "$(System.AccessToken)"
