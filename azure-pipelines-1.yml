@@ -38,5 +38,27 @@ stages:
                     versionSpec: '10.19.0'
                     checkLatest: true
                 - script: |
-                    npm pack 
+                    # Variables
+                    ORGANIZATION_URL="https://dev.azure.com/somya2000"  # Replace with your organization URL
+                    PROJECT_NAME="artifactdemo"  # Replace with your project name
+                    FEED_NAME="trail"  # Replace with your feed name
+                    PACKAGE_NAME="node-hello"  # Replace with your package name
+
+                    # Get the latest version from Azure Artifacts
+                    latest_version=$(az artifacts universal package version list \
+                      --organization "${ORGANIZATION_URL}" \
+                      --project "${PROJECT_NAME}" \
+                      --feed "${FEED_NAME}" \
+                      --name "${PACKAGE_NAME}" \
+                      --query "max([].version)" \
+                      --output tsv)
+
+                    # Print the latest version
+                    echo "Latest version: $latest_version"
+
+                    # Set the latest version as an environment variable
+                    echo "##vso[task.setvariable variable=npmPackageVersion]$latest_version"
+
+                    # Install the latest version of the npm package
+                    npm install "${PACKAGE_NAME}@${latest_version}"
                     npm start
