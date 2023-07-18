@@ -15,7 +15,7 @@ stages:
   jobs:
   - deployment: deploymentJob
     displayName: Deploy to VM
-    environment: demo-imp.som-imp-vm
+    environment: new-env.som-imp-vm
    
     strategy:
       runOnce:
